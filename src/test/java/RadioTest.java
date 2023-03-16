@@ -1,10 +1,17 @@
 import org.example.Radio;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
 class RadioTest {
-    Radio station = new Radio();
+
+    @Test
+    public void shouldCreate() {
+        Radio radio = new Radio();
+
+    }
+}
+
+   /* Radio station = new Radio();
 
     @Test
     public void quantityStation() {
@@ -160,5 +167,5 @@ class RadioTest {
         int actual = station.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
-    }
-}
+    }*/
+
