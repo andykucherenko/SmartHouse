@@ -2,70 +2,74 @@ package org.example;
 
 public class Radio {
 
-    private int maxStation = 9;
-    private int minStation = 0;
-    private int currentRadioStation = minStation;
-    private int minVolume = 0;
-    private int maxVolume = 100;
-    private int currentVolume = minVolume;
-
+    private int currentRadioStation;
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation < minStation) {
+    public void setCurrentRadioStation(int newCurrentRadioStation) {
+        if (newCurrentRadioStation < 0) {
             return;
         }
-        if (currentRadioStation > maxStation) {
+        if (newCurrentRadioStation > 9) {
             return;
         }
-        this.currentRadioStation = currentRadioStation;
+        currentRadioStation = newCurrentRadioStation;
     }
 
     public void nextRadioStation() {
 
-        if (currentRadioStation != maxStation) {
+        if (currentRadioStation < 9) {
             currentRadioStation++;
         } else {
-            currentRadioStation = minStation;
+            currentRadioStation = 0;
         }
     }
 
     public void prevRadioStation() {
 
-        if (currentRadioStation != minStation) {
+        if (currentRadioStation > 0) {
             currentRadioStation--;
         } else {
-            currentRadioStation = maxStation;
+            currentRadioStation = 9;
         }
     }
 
+    private int currentVolume;
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < minVolume) {
+        if (newCurrentVolume < 0) {
             return;
         }
-        if (newCurrentVolume > maxVolume) {
+        if (newCurrentVolume > 100) {
             return;
         }
         currentVolume = newCurrentVolume;
     }
 
+    public void setToMinVolume() {
+        currentVolume = 0;
+    }
+
+    public void setToMaxVolume() {
+        currentVolume = 100;
+    }
+
     public void increaseVolume() {
 
-        if (currentVolume < maxVolume) {
+        if (currentVolume < 100) {
             currentVolume++;
         }
     }
 
     public void reduceVolume() {
 
-        if (currentVolume > minVolume) {
+        if (currentVolume > 0) {
             currentVolume--;
         }
     }
